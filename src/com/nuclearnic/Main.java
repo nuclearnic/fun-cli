@@ -19,35 +19,16 @@ public class Main {
 
         int choice = sc.nextInt();
 
-        if (choice == 1) {
-            try {
 
-                URL url = new URL("https://api.chucknorris.io/jokes/random");
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestProperty("User-Agent", "Mozilla/5.0");
-                con.setRequestMethod("GET");
+        FunRequest fun = new FunRequest();
+        fun.get(choice);
 
-
-                BufferedReader in = new BufferedReader(
-                        new InputStreamReader(con.getInputStream()));
-
-                String inputLine;
-                StringBuffer content = new StringBuffer();
-                while ((inputLine = in.readLine()) != null) {
-                    content.append(inputLine);
-                }
-
-                System.out.println(String.format("%s", content));
-
-                in.close();
-            }
-            catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-
-        } else {
-            System.out.println("Nope");
-        }
+//        if (choice == 1) {
+//            thing.get();
+//
+//        } else {
+//            thing.get();
+//        }
 
 
     }
